@@ -1,0 +1,22 @@
+version: "3.6"
+services:
+  dev-container:
+    container_name: dev-container
+    build:
+      context: .
+      dockerfile: dev.Dockerfile
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_HOST=${POSTGRES_HOST}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_PORT=${POSTGRES_PORT}
+      - POSTGRES_USER=${POSTGRES_USER}
+    stdin_open: true
+    restart: always
+    volumes:
+      - ./local-dev:/api
+    working_dir: /api
+    networks:
+      - net
+  serverless:
+    command: ["npm", "run", "start:dev"]

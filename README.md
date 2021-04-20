@@ -47,7 +47,7 @@ Remove all data, reset Auto-Increment ID:
 TRUNCATE <table name> RESTART IDENTITY;
 ```
 
-Get the total count of rows :
+Get the total count of rows:
 
 ```sql
 SELECT COUNT(*) FROM <table name>;
